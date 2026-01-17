@@ -15,7 +15,7 @@ class Submit(BaseInput):
 
     def __init__(self, *args, css_class=None, **kwargs):
         if css_class is None:
-            self.field_classes = "btn btn-primary"
+            self.field_classes = "btn btn-primary join-item"
         else:
             self.field_classes = css_class
         super().__init__(*args, **kwargs)
@@ -34,7 +34,7 @@ class Reset(BaseInput):
 
     def __init__(self, *args, css_class=None, **kwargs):
         if css_class is None:
-            self.field_classes = "btn btn-error"
+            self.field_classes = "btn btn-error join-item"
         else:
             self.field_classes = css_class
         super().__init__(*args, **kwargs)
@@ -53,7 +53,7 @@ class Button(BaseInput):
 
     def __init__(self, *args, css_class=None, **kwargs):
         if css_class is None:
-            self.field_classes = "btn"
+            self.field_classes = "btn join-item"
         else:
             self.field_classes = css_class
         super().__init__(*args, **kwargs)
