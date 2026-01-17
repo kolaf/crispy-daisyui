@@ -1,4 +1,4 @@
-<div{% if alert.css_id %} id="{{ alert.css_id }}"{% endif %} class="{{ alert.css_class|default:'alert alert-error' }}" role="alert">
+<div{% if alert.css_id %} id="{{ alert.css_id }}"{% endif %} class="alert {{ alert.css_class|default:'alert-error' }}" role="alert">
     <div class="block sm:inline">{{ content|safe }}</div>
     {% if dismiss %}
         <button class="btn btn-sm btn-ghost absolute top-0 bottom-0 right-0">

@@ -148,32 +148,39 @@ class CrispyDaisyUIFieldNode(template.Node):
                 css_class = class_name
 
             # Added additional code for DaisyUI if class has not been passed in via the tag in the template
-            if template_pack == "daisyui" and '"class"' not in attr.keys():
-                css_container = context.get("css_container", self.default_container)
-                if css_container:
-                    css = " " + css_container.get_input_class(field)
-                    css_class += css
+            if template_pack == "daisyui":
+                if '"class"' not in attr.keys():
+                    css_container = context.get("css_container", self.default_container)
+                    if css_container:
+                        css = " " + css_container.get_input_class(field)
+                        css_class += css
                 
                 if field.errors:
                     # Logic to append DaisyUI error classes
                     if "textarea" in css_class:
-                         css_class += " textarea-error"
+                         if "textarea-error" not in css_class:
+                            css_class += " textarea-error"
                     elif "select" in css_class:
-                         css_class += " select-error"
+                         if "select-error" not in css_class:
+                            css_class += " select-error"
                     elif "file-input" in css_class:
-                         css_class += " file-input-error"
+                         if "file-input-error" not in css_class:
+                            css_class += " file-input-error"
                     elif "checkbox" in css_class:
-                         css_class += " checkbox-error"
+                         if "checkbox-error" not in css_class:
+                            css_class += " checkbox-error"
                     elif "radio" in css_class: # if we add radio class
-                         css_class += " radio-error"
+                         if "radio-error" not in css_class:
+                            css_class += " radio-error"
                     elif "input" in css_class:
-                         css_class += " input-error"
+                         if "input-error" not in css_class:
+                            css_class += " input-error"
                     else:
                         # Fallback for unknown widgets or custom ones
                         # If we still have old style border classes?
                         if "border-" in css_class:
                              css_class = re.sub(r"border-\S+", "input-error", css_class)
-                        else:
+                        elif "input-error" not in css_class:
                              css_class += " input-error"
 
             widget.attrs["class"] = css_class
