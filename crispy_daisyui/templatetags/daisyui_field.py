@@ -75,7 +75,7 @@ def pairwise(iterable):
 
 
 class CrispyDaisyUIFieldNode(template.Node):
-    base_input = "input input-bordered w-full"
+    base_input = "input input-bordered"
     
     default_styles = {
         "text": base_input,
@@ -85,16 +85,16 @@ class CrispyDaisyUIFieldNode(template.Node):
         "password": base_input,
         "hidden": "",
         "multiplehidden": "",
-        "file": "file-input file-input-bordered w-full",
-        "clearablefile": "file-input file-input-bordered w-full",
-        "textarea": "textarea textarea-bordered w-full",
+        "file": "file-input file-input-bordered",
+        "clearablefile": "file-input file-input-bordered",
+        "textarea": "textarea textarea-bordered",
         "date": base_input,
         "datetime": base_input,
         "time": base_input,
         "checkbox": "checkbox",
-        "select": "select select-bordered w-full",
-        "nullbooleanselect": "select select-bordered w-full",
-        "selectmultiple": "select select-bordered w-full h-auto",
+        "select": "select select-bordered",
+        "nullbooleanselect": "select select-bordered",
+        "selectmultiple": "select select-bordered h-auto",
         "radioselect": "",
         "checkboxselectmultiple": "",
         "multi": "",
