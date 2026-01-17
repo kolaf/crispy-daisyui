@@ -2,7 +2,7 @@
 Layout Objects
 ==============
 
-This template pack renders Django widgets with the Tailwind CSS framework. This
+This template pack renders Django widgets with the DaisyUI framework (based on Tailwind CSS). This
 page shows examples of how these widgets look when rendered with the default
 styling. For these objects we have given an opinion on how they should look.
 
@@ -11,14 +11,14 @@ default layout. If you wish to customise the form you can use ``{% crispy %}``
 tags and ``FormHelper`` to control the layout of your form.
 
 Wherever possible layout objects are used from ``crispy-forms`` itself (either
-core or bootstrap). Where these can not be used Tailwind versions are included
+core or bootstrap). Where these can not be used DaisyUI versions are included
 within this template pack. This means that the layout objects may be found
 within one of three files.
 
 - ``crispy_forms.layout`` (``Layout`` and other standard objects)
 - ``crispy_forms.bootstrap`` (Some bootstrap objects work out of the box, so we
   will use these)
-- ``crispy_tailwind.layout`` (Customised versions for Tailwind are found here)
+- ``crispy_daisyui.layout`` (Customised versions for DaisyUI are found here)
 
 Knowledge for crispy-forms ``Layout`` class is assumed. Please see
 https://django-crispy-forms.readthedocs.io/en/latest/layouts.html for further
@@ -39,7 +39,7 @@ Column
 ------
 
 The Column_ layout object wraps fields in a ``div`` so it can be used as a
-column. The Tailwind template adds no css class to this wrapper by default. If
+column. The DaisyUI template adds no css class to this wrapper by default. If
 required classes can be added::
 
   Column('form_field_1', 'form_field_2', css_class='additional classes',)
@@ -50,7 +50,7 @@ Row
 ---
 
 The Row_ layout object wraps fields in a ``div`` so it can be used as a
-row. The Tailwind template adds ``flex flex-row`` to this wrapper by default.
+row. The DaisyUI template adds ``flex flex-row`` to this wrapper by default.
 If required this default can be replaced by custom css classes::
 
   Row('form_field_1', 'form_field_2', css_class='additional classes',)
@@ -105,7 +105,7 @@ Fieldset
 
 Wraps fields in a ``<fieldset>``. The first parameter is the legend for the
 fieldset. By default the class for the legend is
-``block text-gray-700 font-bold mb-2``. Below is an example layout and the
+``text-lg font-bold mb-2``. Below is an example layout and the
 default rendering::
 
   Fieldset("Text for the legend", "is_company", "email",)
@@ -161,7 +161,7 @@ The three layout objects which allow for prepended and appended inputs are:
   thirdly the appended text.
 
 The image below shows examples of how these are rendered with the template
-provided with ``crispy-tailwind``. If you wish to customise these then you
+provided with ``crispy-daisyui``. If you wish to customise these then you
 will need to `over ride templates`_.
 
 .. image:: img/prepended.png
@@ -170,21 +170,21 @@ will need to `over ride templates`_.
 See the ``crispy-forms`` Prepended_ docs for more information on how to use
 these fields.
 
-Note: the active argument does not have any impact on the ``crispy-tailwind``
+Note: the active argument does not have any impact on the ``crispy-daisyui``
 template pack.
 
 .. _Prepended: https://django-crispy-forms.readthedocs.io/en/latest/layouts.html?#bootstrap-layout-objects
 
-crispy_tailwind.layout
+crispy_daisyui.layout
 ======================
 
-The following layout objects can be imported from ``crispy_tailwind.layout``.
+The following layout objects can be imported from ``crispy_daisyui.layout``.
 
 Buttons
 -------
 
 The three Buttons (``Button``, ``Reset`` and ``Submit``) from ``crispy-forms``
-have been customised for the Tailwind template pack. Below is an example form
+have been customised for the DaisyUI template pack. Below is an example form
 layout with an image showing how it is rendered::
 
   form.helper.layout = Layout(
@@ -198,7 +198,7 @@ The three buttons have default classes applied to them. The buttons can all be
 customised by adding css_classes to these layout objects. The following layout
 renders a single customised ``Submit`` button::
 
-  form.helper.layout = Layout(Submit("submit", "Submit", css_class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"))
+  form.helper.layout = Layout(Submit("submit", "Submit", css_class="btn btn-primary ..."))
 
 .. image:: img/custom_button.png
    :height: 35px
@@ -222,7 +222,7 @@ wrapping ``<div>``, this allows simple changes to the alert style (e.g. colour)
 By default alerts have a close button. To disable, set ``dismiss`` to
 ``false``.
 
-In addition the variety of alerts possible with Tailwind is wide and but may
+In addition the variety of alerts possible with DaisyUI is wide and but may
 require a different HTML layout. In this case you may find is useful to over
 ride the ``alert.html`` template. See the crispy-forms docs on how to
 `over ride templates`_ for more information.

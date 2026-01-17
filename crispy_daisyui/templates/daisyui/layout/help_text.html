@@ -1,0 +1,5 @@
+{% if field.help_text %}
+    <label class="label pb-0">
+        <span class="label-text-alt opacity-70" {% if field.id_for_label %}id="{{ field.id_for_label }}_helptext"{% endif %}>{{ field.help_text|safe }}</span>
+    </label>
+{% endif %}

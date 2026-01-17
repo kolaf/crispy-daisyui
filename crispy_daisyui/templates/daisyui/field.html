@@ -1,0 +1,39 @@
+{% load daisyui_field %}
+
+{% if field.is_hidden %}
+    {{ field }}
+{% else %}
+    {# Opening Div and Label first #}
+
+    <{% if tag %}{{ tag }}{% else %}div{% endif %} id="div_{{ field.auto_id }}" class="form-control {% if wrapper_class %}{{ wrapper_class }} {% endif %}{% if field_class %}{{ field_class }}{% else %}mb-3{% endif %}">
+    {% if field.label and form_show_labels %}
+        <label for="{{ field.id_for_label }}" class="label {% if label_class %}{{ label_class }}{% endif %}">
+            <span class="label-text">
+                {{ field.label|safe }}{% if field.field.required %}<span class="text-error">*</span>{% endif %}
+            </span>
+        </label>
+    {% endif %}
+
+    {# if field has a special template then use this #}
+    {% if field|is_select %}
+        <div class="{% if field_class %}{{ field_class }}{% else %}w-full{% endif %}"{% if flat_attrs %} {{ flat_attrs|safe }}{% endif %}>
+            {% include 'daisyui/layout/select.html' %}
+        </div>
+    {% elif field|is_checkboxselectmultiple %}
+        <div class="{% if field_class %}{{ field_class }}{% else %}mb-3{% endif %}"{% if flat_attrs %} {{ flat_attrs|safe }}{% endif %}>
+            {% include 'daisyui/layout/checkboxselectmultiple.html' %}
+        </div>
+    {% elif field|is_radioselect %}
+        <div class="{% if field_class %}{{ field_class }}{% else %}mb-3{% endif %}"{% if flat_attrs %} {{ flat_attrs|safe }}{% endif %}>
+            {% include 'daisyui/layout/radioselect.html' %}
+        </div>
+    {% else %}
+        {# otherwise use django rendering with additional classes added #}
+        {% daisyui_field field %}
+    {% endif %}
+
+    {% include 'daisyui/layout/help_text_and_errors.html' %}
+
+    </{% if tag %}{{ tag }}{% else %}div{% endif %}>
+
+{% endif %}

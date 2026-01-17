@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "crispy-tailwind"
+name = "crispy-daisyui"
 version = "1.0.3"
-description = "Tailwind CSS for Django Crispy Forms"
+description = "DaisyUI for Django Crispy Forms"
 readme = "README.rst"
 license = {text = "MIT"}
 authors = [{name = "David Smith", email = "smithdc@gmail.com"}]
@@ -42,15 +42,15 @@ test = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/django-crispy-forms/crispy-tailwind"
-"Issues" = "https://github.com/django-crispy-forms/crispy-tailwind/issues"
-"Changelog" = "https://github.com/django-crispy-forms/crispy-tailwind/releases"
+"Homepage" = "https://github.com/django-crispy-forms/crispy-daisyui"
+"Issues" = "https://github.com/django-crispy-forms/crispy-daisyui/issues"
+"Changelog" = "https://github.com/django-crispy-forms/crispy-daisyui/releases"
 
 [tool.autopub]
-project-name = "Crispy-Tailwind"
+project-name = "Crispy-DaisyUI"
 git-username = "botpub"
 git-email = "52496925+botpub@users.noreply.github.com"
-version-strings = ["crispy_tailwind/__init__.py"]
+version-strings = ["crispy_daisyui/__init__.py"]
 append-github-contributor = true
 
 [tool.black]

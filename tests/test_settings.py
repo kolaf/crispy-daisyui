@@ -8,7 +8,7 @@ INSTALLED_APPS = (
     "django.contrib.contenttypes",
     "django.contrib.admin",
     "crispy_forms",
-    "crispy_tailwind",
+    "crispy_daisyui",
 )
 
 DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
@@ -49,8 +49,8 @@ TEMPLATES = [
     },
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "daisyui"
 
 USE_TZ = True
 
-CRISPY_TEMPLATE_PACK = "tailwind"
+CRISPY_TEMPLATE_PACK = "daisyui"

@@ -1,0 +1,19 @@
+{% load daisyui_field %}
+
+<div{% if div.css_id %} id="{{ div.css_id }}"{% endif %} class="form-control {% if wrapper_class %} {{ wrapper_class }}{% endif %}{% if field.css_classes %} {{ field.css_classes }}{% endif %}{% if div.css_class %} {{ div.css_class }}{% endif %}" {{ div.flat_attrs|safe }}>
+    {% if field.label and form_show_labels %}
+      <label for="{{ field.id_for_label }}" class="label {% if label_class %}{{ label_class }}{% endif %}">
+        <span class="label-text">
+            {{ field.label|safe }}{% if field.field.required %}<span class="text-error">*</span>{% endif %}
+        </span>
+      </label>
+    {% endif %}
+
+    <div class="join w-full{% if field_class %} {{ field_class }}{% endif %}">
+        {% daisyui_field field "class" "join-item input input-bordered w-full" %}
+        <div class="join-item">
+            {{ buttons|safe }}
+        </div>
+        {% include 'daisyui/layout/help_text_and_errors.html' %}
+    </div>
+</div>
