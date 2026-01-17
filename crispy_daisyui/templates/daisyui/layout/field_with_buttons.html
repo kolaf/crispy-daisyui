@@ -10,7 +10,7 @@
     {% endif %}
 
     <div class="join w-full{% if field_class %} {{ field_class }}{% endif %}">
-        {% daisyui_field field "class" "join-item input input-bordered" %}
+        {% daisyui_field field "class" "join-item input input-bordered w-full" %}
         {{ buttons|safe }}
         {% include 'daisyui/layout/help_text_and_errors.html' %}
     </div>

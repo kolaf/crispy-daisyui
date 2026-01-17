@@ -29,7 +29,9 @@
         </div>
     {% else %}
         {# otherwise use django rendering with additional classes added #}
-        {% daisyui_field field %}
+        <div class="w-full overflow-x-auto">
+            {% daisyui_field field %}
+        </div>
     {% endif %}
 
     {% include 'daisyui/layout/help_text_and_errors.html' %}
