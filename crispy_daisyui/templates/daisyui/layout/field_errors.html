@@ -1,7 +1,7 @@
 {% if form_show_errors and field.errors %}
     {% for error in field.errors %}
-        <label class="label py-0">
-             <span class="label-text-alt text-error" id="error_{{ forloop.counter }}_{{ field.auto_id }}"><strong>{{ error }}</strong></span>
-        </label>
+        <div class="label py-0">
+             <span class="label-text-alt text-error whitespace-normal" id="error_{{ forloop.counter }}_{{ field.auto_id }}"><strong>{{ error }}</strong></span>
+        </div>
     {% endfor %}
 {% endif %}
